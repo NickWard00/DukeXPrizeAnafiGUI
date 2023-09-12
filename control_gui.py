@@ -290,7 +290,8 @@ def look_down():
     
 def start_fpv():
     display_message('Starting first person view video feed...')
-    p1 = subprocess.Popen(['/home/achilles/code/parrot-groundsdk/out/pdraw-linux/staging/native-wrapper.sh', 'pdraw', '-u','rtsp://10.202.0.1/live'])
+    #p1 = subprocess.Popen(['/home/achilles/code/parrot-groundsdk/out/pdraw-linux/staging/native-wrapper.sh', 'pdraw', '-u','rtsp://10.202.0.1/live'])
+    p1 = subprocess.Popen(['/home/drone/Desktop/groundsdk-tools/out/groundsdk-linux/staging/native-wrapper.sh', 'pdraw', '-u','rtsp://192.168.42.1/live'])
 
 def display_message(message):
     global message_box
@@ -442,7 +443,7 @@ def enable_movement_buttons():
 
 # Main Loop Start:
 if __name__ == "__main__":
-    with olympe.Drone(SPHINX_IP) as drone:
+    with olympe.Drone(DRONE_IP) as drone:
         disable_all_buttons()
         connect_button.config(state = "normal")
         root.mainloop()
